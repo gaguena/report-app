@@ -3,10 +3,9 @@ var consign = require('consign');
 
 var app = express();
 
-app.use(express.static('./public'));
-
-consign({cwd: 'app'})
-    .include('routes')
+consign({ cwd: './app' })
+    .include('config')
+    .then('routers')
     .then('controllers')
     .into(app);
 
